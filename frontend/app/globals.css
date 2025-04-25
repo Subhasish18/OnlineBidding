@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+
+@layer components {
+    .smooth-type::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  
+    .smooth-type:focus::before {
+      opacity: 1;
+      animation: type-gradient 2s linear infinite;
+    }
+  }
+  
+  @keyframes type-gradient {
+    0% {
+      background-position: 300px 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  @keyframes pulse-border {
+    0%, 100% {
+      border-color: #000;
+    }
+    50% {
+      border-color: #4a90e2;
+    }
+  }
+  
+  @layer utilities {
+    .animate-pulse-border {
+      animation: pulse-border 4s ease-in-out infinite;
+    }
+  }
+  
