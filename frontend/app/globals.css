@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "tw-animate-css";
 
 @layer components {
     .smooth-type::before {
@@ -11,13 +11,13 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-  
+
     .smooth-type:focus::before {
       opacity: 1;
       animation: type-gradient 2s linear infinite;
     }
   }
-  
+
   @keyframes type-gradient {
     0% {
       background-position: 300px 0;
@@ -26,7 +26,7 @@
       background-position: 0 0;
     }
   }
-  
+
   @keyframes pulse-border {
     0%, 100% {
       border-color: #000;
@@ -35,10 +35,31 @@
       border-color: #4a90e2;
     }
   }
-  
+
   @layer utilities {
     .animate-pulse-border {
       animation: pulse-border 4s ease-in-out infinite;
     }
   }
-  
+
+  .custom-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #10b981; /* Tailwind's emerald-500 */
+    border-radius: 9999px; /* Match rounded-full */
+    transition: width 0.7s ease, transform 0.7s ease;
+    z-index: -10;
+  }
+
+  .custom-button:hover::before {
+    width: 100%;
+    transform: scale(1.2); /* Slightly scale up for a dynamic effect */
+  }
+
+  .custom-button:hover {
+    color: #ffffff; /* White text on hover */
+  }

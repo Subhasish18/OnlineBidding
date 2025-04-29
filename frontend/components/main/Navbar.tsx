@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
             className="cursor-pointer hover:animate-slowspin object-contain"
           />
           <span className='font-bold ml-[20px] hidden md:block text-black-300'>
-                <a className="underline decoration-pink-500 decoration-4 font-bold italic">Alpha Bidding</a>
+                <a className="underline decoration-purple-500 decoration-4 font-bold italictext-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600">BidStar</a>
             </span>
         </a>
 
