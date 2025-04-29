@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectCard from "../sub/AuctionCards";
+import AuctionCards from "../sub/AuctionCards";
 
 const AuctionSection = () => {
   return (
@@ -11,20 +11,23 @@ const AuctionSection = () => {
         Featured Auctions
       </h1>
       <div className="w-full flex flex-col md:flex-row justify-between gap-10 px-10">
-        <ProjectCard
+        <AuctionCards
           src="/p1.jpg"
           title="Chaos Within"
           description="A faceless portrait painted with wild, impasto strokes representing emotional turmoil and inner fragmentation."
+          currentbid={1500}
         />
-        <ProjectCard
+        <AuctionCards
           src="/p2.jpg"
           title="The Artist and Death"
           description="A haunting depiction of an artist with Death playing the violin over his shoulder, symbolizing the ever-present shadow of mortality in creativity."
+          currentbid={2200}
         />
-        <ProjectCard
+        <AuctionCards
           src="/p3.jpg"
           title="Mona Lisa & Her Cat"
           description="A humorous reimagining of Da Vinci’s masterpiece featuring a chubby orange tabby cat cradled in Mona Lisa’s arms, blending classic art with modern whimsy."
+          currentbid={900}
         />
       </div>
     </div>
