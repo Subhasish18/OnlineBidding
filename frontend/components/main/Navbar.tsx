@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between gap-4">
           <div className="hidden md:flex items-center justify-between w-[300px] h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[10px] rounded-full text-gray-300">
             <Link href="/" passHref className="cursor-pointer">Home</Link>
-            <a href="#items" className="cursor-pointer">Items</a>
+            <Link href="/items" passHref className="cursor-pointer">Items</Link>
             <a href="#watchlist" className="cursor-pointer">Watchlist</a>
           </div>
 

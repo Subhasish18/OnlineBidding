@@ -6,6 +6,7 @@ import Navbar from "@/components/main/Navbar";
 import Working from "@/components/main/Working";
 import Mail from "@/components/main/Mail";
 
+
 export default function Home() {
   return (
     <main className="h-full w-full">
