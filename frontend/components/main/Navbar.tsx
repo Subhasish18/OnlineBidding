@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Search from './Search';
 import ShareThing from './sharething';
 import Dropdown from "@/components/main/Dropdown";
+import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -12,22 +13,25 @@ const Navbar: React.FC = () => {
   return (
     <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
       <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
-        <a href="#home" className="h-auto w-auto flex flex-row items-center">
+      <Link href="/" passHref>
+        <div className="h-auto w-auto flex flex-row items-center cursor-pointer">
           <Image
             src="/NavLogo.png"
             alt="Logo"
             width={70}
             height={70}
-            className="cursor-pointer hover:animate-slowspin object-contain"
+            className="hover:animate-slowspin object-contain"
           />
           <span className='font-bold ml-[20px] hidden md:block text-black-300'>
-                <a className="underline decoration-purple-500 decoration-4 font-bold italictext-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600">BidStar</a>
+            <span className="underline decoration-purple-500 decoration-4 font-bold italic text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600">
+              BidStar
             </span>
-        </a>
-
+          </span>
+        </div>
+      </Link>
         <div className="flex items-center justify-between gap-4">
           <div className="hidden md:flex items-center justify-between w-[300px] h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[10px] rounded-full text-gray-300">
-            <a href="#home" className="cursor-pointer">Home</a>
+            <Link href="/" passHref className="cursor-pointer">Home</Link>
             <a href="#items" className="cursor-pointer">Items</a>
             <a href="#watchlist" className="cursor-pointer">Watchlist</a>
           </div>

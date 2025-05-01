@@ -62,3 +62,7 @@
   .custom-button:hover {
     color: #ffffff; /* White text on hover */
   }
+
+  html {
+    scroll-behavior: smooth;
+  }

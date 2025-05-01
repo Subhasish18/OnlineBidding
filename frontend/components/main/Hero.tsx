@@ -7,7 +7,7 @@ import {motion} from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section className="relative py-12 md:py-22 overflow-hidden">  
+    <section id="home" className="relative py-12 md:py-22 overflow-hidden"> 
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="max-w-xl animate-fade-in">
