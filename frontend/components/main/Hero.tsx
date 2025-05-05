@@ -3,6 +3,7 @@
 
 import React from "react";
 import {motion} from 'framer-motion'
+import Link from "next/link";
 
 
 const Hero = () => {
@@ -46,7 +47,7 @@ const Hero = () => {
               type="submit"
               className="relative flex justify-center gap-2 items-center ml-0 mr-auto shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold border-2 border-gray-50 px-6 py-2 rounded-full overflow-hidden group custom-button"
             >
-              Explore Auctions
+              <Link href="/items" passHref className="cursor-pointer">Explore Auctions</Link>
               <svg
                 className="w-8 h-8 group-hover:rotate-90 group-hover:bg-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
                 viewBox="0 0 16 19"

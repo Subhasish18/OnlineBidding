@@ -2,10 +2,7 @@
 
 import React from "react";
 import {
-  RxDiscordLogo,
   RxGithubLogo,
-  RxInstagramLogo,
-  RxTwitterLogo,
   RxLinkedinLogo,
 } from "react-icons/rx";
 
@@ -21,21 +18,9 @@ const Footer = () => {
               <RxGithubLogo />
               <span className="text-[15px] ml-[6px]">Github</span>
             </p>
-            <p className="flex flex-row items-center my-[15px] cursor-pointer">
-              <RxDiscordLogo />
-              <span className="text-[15px] ml-[6px]">Discord</span>
-            </p>
           </div>
           <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
             <div className="font-bold text-[16px] text-gray-500 underline cursor-pointer">Social Media</div>
-            <p className="flex flex-row items-center my-[15px] cursor-pointer">
-              <RxInstagramLogo />
-              <span className="text-[15px] ml-[6px]">Instagram</span>
-            </p>
-            <p className="flex flex-row items-center my-[15px] cursor-pointer">
-              <RxTwitterLogo />
-              <span className="text-[15px] ml-[6px]">Twitter</span>
-            </p>
             <p className="flex flex-row items-center my-[15px] cursor-pointer">
               <RxLinkedinLogo />
               <span className="text-[15px] ml-[6px]">Linkedin</span>

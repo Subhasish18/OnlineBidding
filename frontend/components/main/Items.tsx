@@ -39,15 +39,13 @@ export default function ItemPage({ imageUrl }: ItemPageProps) {
   };
 
   return (
-    <section id="items" className="relative py-12 md:py-22 overflow-hidden">
+  <section id="items" className="relative overflow-hidden">
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="min-h-screen bg-white text-blue-900 flex items-center justify-center p-4"
-    >
-      <div className="max-w-4xl w-full bg-blue-50 rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-8">
-
+      className="min-h-screen bg-white text-blue-900 flex items-center justify-center p-2">
+      <div className="max-w-4xl w-full bg-blue-50 rounded-lg shadow-lg p-6 flex flex-col md:flex-row gap-6">
         <motion.div
           className="flex-1"
           initial={{ scale: 0.95 }}
@@ -68,17 +66,17 @@ export default function ItemPage({ imageUrl }: ItemPageProps) {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           <div>
-            <h1 className="text-3xl font-bold mb-4">Vintage Wristwatch</h1>
-            <p className="mb-6 text-blue-800">
+            <h1 className="text-3xl font-bold mb-3">Vintage Wristwatch</h1> 
+            <p className="mb-4 text-blue-800"> 
               A beautifully preserved vintage wristwatch from the 1950s. Perfect for collectors and enthusiasts.
             </p>
-            <div className="mb-6">
+            <div className="mb-4">
               <span className="text-lg font-semibold">Current Highest Bid: </span>
               <span className="text-xl font-bold text-blue-600">${currentHighestBid.toFixed(2)}</span>
             </div>
           </div>
 
-          <form onSubmit={handleBidSubmit} className="flex flex-col sm:flex-row items-center gap-4">
+          <form onSubmit={handleBidSubmit} className="flex flex-col sm:flex-row items-center gap-3"> 
             <input
               type="number"
               step="0.01"
@@ -102,9 +100,7 @@ export default function ItemPage({ imageUrl }: ItemPageProps) {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className={`mt-4 text-sm font-medium ${
-                message.includes('successfully') ? 'text-green-600' : 'text-red-600'
-              }`}
+              className={`mt-3 text-sm font-medium ${message.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}
             >
               {message}
             </motion.p>
@@ -112,6 +108,6 @@ export default function ItemPage({ imageUrl }: ItemPageProps) {
         </motion.div>
       </div>
     </motion.div>
-    </section>
-  );
+  </section>
+);
 }

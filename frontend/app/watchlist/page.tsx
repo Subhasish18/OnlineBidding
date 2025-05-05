@@ -1,17 +1,13 @@
 import React from 'react'
-import Items from '@/components/main/Items'
 import Navbar from '@/components/main/Navbar'
 import Footer from '@/components/main/Footer'
+import Cart from '@/components/main/Cart'
 
 const page = () => {
   return (
     <div>
     <Navbar />
-    <Items />
-    <Items />
-    <Items />
-    <Items />
-    <Items />
+    <Cart />
     <Footer />
     </div>
   )
