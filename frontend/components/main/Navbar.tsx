@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import React, { useState } from 'react';
-import Search from './Search';
 import ShareThing from './sharething';
 import Dropdown from "@/components/main/Dropdown";
 import Link from 'next/link';
@@ -35,8 +34,6 @@ const Navbar: React.FC = () => {
             <Link href="/items" passHref className="cursor-pointer">Items</Link>
             <Link href="/watchlist" passHref className="cursor-pointer">Cart</Link>
           </div>
-
-          <Search />
 
           <ShareThing />
 
