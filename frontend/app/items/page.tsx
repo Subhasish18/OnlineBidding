@@ -7,11 +7,11 @@ const page = () => {
   return (
     <div>
     <Navbar />
+    {/* <Items />
     <Items />
     <Items />
     <Items />
-    <Items />
-    <Items />
+    <Items /> */}
     <Footer />
     </div>
   )
