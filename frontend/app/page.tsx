@@ -5,6 +5,11 @@ import Hero from "@/components/main/Hero";
 import Navbar from "@/components/main/Navbar";
 import Working from "@/components/main/Working";
 import Mail from "@/components/main/Mail";
+import AccountHeader from "@/components/account/AccountHeader";
+import AccountSettings from "@/components/account/AccountSettings";
+import BidHistory from "@/components/account/BidHistory";
+import SavedItems from "@/components/account/SavedItems";
+import UserProfile from "@/components/account/UserProfile";
 
 
 export default function Home() {
@@ -18,6 +23,12 @@ export default function Home() {
         <Working />
         <Mail />
         <Footer />
+        <AccountHeader />
+        <UserProfile />
+        <AccountSettings />
+        <BidHistory />
+        <SavedItems />
+        
       </div>
     </main>
   );
