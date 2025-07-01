@@ -27,7 +27,7 @@ class BidController extends Controller
                 'auction_id' => $request->auction_id,
                 'amount' => $request->amount,
                 'bid_time' => now(),
-                'status' => 'active', // Updated to 'winning' in model boot
+                'status' => 'active',
             ]);
 
             return response()->json([
@@ -42,7 +42,7 @@ class BidController extends Controller
     public function index($auctionId)
     {
         $bids = Bid::where('auction_id', $auctionId)
-            ->with('user') // Include user details
+            ->with('user') 
             ->orderBy('amount', 'desc')
             ->get();
 

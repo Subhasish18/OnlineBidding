@@ -33,7 +33,6 @@ class Auction extends Model
         'end_time' => 'datetime',
     ];
 
-    // Relationships
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

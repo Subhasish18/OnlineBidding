@@ -38,7 +38,7 @@ class Bid extends Model
 
         static::creating(function ($bid) {
             if (app()->runningInConsole()) {
-                return; // Skip validation during seeding
+                return;
             }
             if ($bid->amount <= 0) {
                 throw new \Exception('Bid amount must be greater than zero.');
@@ -54,7 +54,7 @@ class Bid extends Model
 
         static::created(function ($bid) {
             if (app()->runningInConsole()) {
-                return; // Skip status updates during seeding
+                return; 
             }
             Bid::where('auction_id', $bid->auction_id)
                 ->where('id', '!=', $bid->id)

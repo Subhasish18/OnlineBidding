@@ -11,9 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AuctionController extends Controller
 {
-    /**
-     * Format auction data for API response.
-     */
+    
     private function formatAuction($auction)
     {
         $isWatched = Auth::check()
@@ -42,14 +40,11 @@ class AuctionController extends Controller
         ];
     }
 
-    /**
-     * Display a listing of auctions.
-     */
     public function index(Request $request)
     {
         $query = Auction::with(['user', 'category', 'bids']);
 
-        // Filter by status
+    
         if ($request->has('status')) {
             if ($request->status === 'active') {
                 $query->active();
@@ -58,12 +53,10 @@ class AuctionController extends Controller
             }
         }
 
-        // Filter by category_id
         if ($request->has('category_id')) {
             $query->where('category_id', $request->category_id);
         }
 
-        // Search by title or description
         if ($request->has('search')) {
             $search = $request->search;
             $query->where(function ($q) use ($search) {
@@ -79,9 +72,7 @@ class AuctionController extends Controller
         return response()->json(['auctions' => $auctions]);
     }
 
-    /**
-     * Display a single auction.
-     */
+   
     public function show($id)
     {
         $auction = Auction::with(['user', 'category', 'bids'])
@@ -90,9 +81,7 @@ class AuctionController extends Controller
         return response()->json(['auction' => $this->formatAuction($auction)]);
     }
 
-    /**
-     * Store a newly created auction.
-     */
+   
     public function store(Request $request)
     {
         $request->validate([
@@ -120,7 +109,6 @@ class AuctionController extends Controller
         $data['current_price'] = $data['starting_price'];
         $data['status'] = 'active';
 
-        // Handle image upload
         if ($request->hasFile('image')) {
             $data['image_path'] = $request->file('image')->store('auctions', 'public');
         }
@@ -136,19 +124,14 @@ class AuctionController extends Controller
         }
     }
 
-    /**
-     * Update an existing auction.
-     */
     public function update(Request $request, $id)
     {
         $auction = Auction::findOrFail($id);
 
-        // Check if user is authorized
         if ($auction->user_id !== Auth::id()) {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
 
-        // Prevent updates to ended auctions
         if ($auction->hasEnded()) {
             return response()->json(['error' => 'Cannot update an ended auction'], 400);
         }
@@ -174,9 +157,9 @@ class AuctionController extends Controller
             'category_id',
         ]);
 
-        // Handle image upload
+      
         if ($request->hasFile('image')) {
-            // Delete old image if exists
+           
             if ($auction->image_path) {
                 Storage::disk('public')->delete($auction->image_path);
             }
@@ -194,24 +177,20 @@ class AuctionController extends Controller
         }
     }
 
-    /**
-     * Delete an auction.
-     */
     public function destroy($id)
     {
         $auction = Auction::findOrFail($id);
 
-        // Check if user is authorized
         if ($auction->user_id !== Auth::id()) {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
 
-        // Prevent deletion of active auctions with bids
+       
         if ($auction->isActive() && $auction->bids()->count() > 0) {
             return response()->json(['error' => 'Cannot delete an active auction with bids'], 400);
         }
 
-        // Delete image if exists
+     
         if ($auction->image_path) {
             Storage::disk('public')->delete($auction->image_path);
         }
