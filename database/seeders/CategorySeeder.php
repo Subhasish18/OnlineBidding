@@ -2,25 +2,34 @@
 
 namespace Database\Seeders;
 
-    use Illuminate\Database\Seeder;
-    use App\Models\Category;
+use Illuminate\Database\Seeder;
+use App\Models\Category;
+use Illuminate\Support\Str;
 
-   class CategorySeeder extends Seeder
-   {
-       public function run()
-       {
-           Category::create([
-               'name' => 'Electronics',
-               'slug' => 'electronics',
-               'description' => 'Electronic gadgets and devices',
-               'icon' => 'fa-tv',
-           ]);
+class CategorySeeder extends Seeder
+{
+    public function run(): void
+    {
+        $categories = [
+            [
+                'name' => 'Electronics',
+                'slug' => 'electronics',
+                'description' => 'Electronic gadgets and devices',
+                'icon' => 'fa-tv',
+            ],
+            [
+                'name' => 'Collectibles',
+                'slug' => 'collectibles',
+                'description' => 'Rare and unique collectible items',
+                'icon' => 'fa-star',
+            ],
+        ];
 
-           Category::create([
-               'name' => 'Automobiles',
-               'slug' => 'automobiles',
-               'description' => 'Cars and vehicles',
-               'icon' => 'fa-car',
-           ]);
-       }
-   }
+        foreach ($categories as $categoryData) {
+            // Check if category exists by slug to avoid duplicates
+            if (!Category::where('slug', $categoryData['slug'])->exists()) {
+                Category::create($categoryData);
+            }
+        }
+    }
+}
