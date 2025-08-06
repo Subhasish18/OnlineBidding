@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -34,19 +35,17 @@ class User extends Authenticatable
     }
 
    
-    public function auctions()
+    public function auctions(): HasMany
     {
         return $this->hasMany(Auction::class);
     }
 
-    
-    public function bids()
+    public function bids(): HasMany
     {
         return $this->hasMany(Bid::class);
     }
 
-    
-    public function watchlist()
+    public function watchlist(): HasMany
     {
         return $this->hasMany(Watchlist::class);
     }

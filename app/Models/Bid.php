@@ -56,12 +56,20 @@ class Bid extends Model
             if (app()->runningInConsole()) {
                 return; 
             }
+            // Mark all other bids as outbid
             Bid::where('auction_id', $bid->auction_id)
                 ->where('id', '!=', $bid->id)
                 ->where('status', '!=', 'outbid')
                 ->update(['status' => 'outbid']);
+            
+            // Set this bid as winning
             $bid->status = 'winning';
             $bid->save();
+            
+            // Update auction current price
+            $auction = $bid->auction;
+            $auction->current_price = $bid->amount;
+            $auction->save();
         });
     }
 }
